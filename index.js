@@ -65,6 +65,8 @@ document.addEventListener("keydown",function(event)
   animate(event.key);
 })
 
+// this is function to animate the buttons.
+
 function animate(currentKey)
 {
     var activeButton = document.querySelector("."+currentKey);
