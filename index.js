@@ -33,7 +33,7 @@ function makeSound(key)
         tom7.play();
         break;
       default:
-        alert(key);
+     
         break;
   }  
 }
@@ -50,7 +50,9 @@ for ( i = 0;  i < numberOfDrums; i++ )
   document.querySelectorAll(".drum")[i].addEventListener("click", function () 
   {
     makeSound(this.innerHTML);
+    animate(this.innerHTML);
   });
+
 
   
   // we could have used an anonymous function here.............
@@ -60,5 +62,15 @@ for ( i = 0;  i < numberOfDrums; i++ )
 document.addEventListener("keydown",function(event)
 {
   makeSound(event.key);
-});
+  animate(event.key);
+})
 
+function animate(currentKey)
+{
+    var activeButton = document.querySelector("."+currentKey);
+    activeButton.classList.add("pressed");
+
+    setTimeout(function(){
+      activeButton.classList.remove("pressed")
+    },100);
+}
